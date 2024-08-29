@@ -10,12 +10,27 @@ const DivContainer = styled.div`
     padding: 50px;
 
     h1{
+        color: white;
         text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .containerBotoes{
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
     }
 
     @media screen and (max-width: 450px){
-        width: 75%;
-        height: 60%;
+        width: 90%;
+        height: auto;
+
+        .containerBotoes{
+            margin-top: 25px;
+            justify-content: center;
+        }
     }
 `
 
@@ -27,14 +42,19 @@ function Card(){
 
         <CamposNumericos
             label="Altura:"
+            placeholder="Exemplo 1.75"
         />
 
         <CamposNumericos
             label="Peso:"
+            placeholder="Exemplo 70.5"
         />
 
-        <Botoes nome="Calcular" cor="#e04138"/>
-        <Botoes nome="Limpar" cor="#404042"/>
+        <div className="containerBotoes">
+            <Botoes nome="Calcular" cor="#e04138"/>
+             <Botoes nome="Limpar" cor="#404042"/>
+        </div>
+        
         
     </DivContainer>
 )
