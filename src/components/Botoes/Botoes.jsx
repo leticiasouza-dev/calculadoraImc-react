@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 
 const Botao = styled.button`
+    color: white;
     width: 180px;
     
     padding: 20px 40px;
@@ -14,9 +15,9 @@ const Botao = styled.button`
     }
 `
 
-function Botoes ({nome, onclick, cor}){
+function Botoes ({nome, onClick, cor}){
     return(
-        <Botao onclick={onclick} style={{backgroundColor: `${cor}`}}>
+        <Botao onClick={onClick} style={{backgroundColor: `${cor}`}}>
             {nome}
         </Botao>
      

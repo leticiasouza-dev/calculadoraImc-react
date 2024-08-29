@@ -15,11 +15,11 @@ const Input = styled.input`
     margin: 9px 0;
 `
 
-function CamposNumericos({label, placeholder}){
+function CamposNumericos({label, placeholder, value, onChange}){
     return(
         <DivConteudo>
             <Label>{label}</Label>
-            <Input type="number" placeholder={placeholder}/>
+            <Input type="number" placeholder={placeholder} value={value} onChange={onChange}/>
         </DivConteudo>
         
     )
