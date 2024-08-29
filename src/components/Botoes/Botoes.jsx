@@ -4,10 +4,12 @@ const Botao = styled.button`
     
 `
 
-function Botoes (){
+function Botoes ({nome, onclick, cor}){
     return(
-        <Botao>
-
+        <Botao onclick={onclick} style={{backgroundColor: `${cor}`}}>
+            {nome}
         </Botao>
     )
 }
+
+export default Botoes;

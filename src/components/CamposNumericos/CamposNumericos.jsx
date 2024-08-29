@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const DivConteudo = styled.div`
-
 `
 const Label = styled.label`
 
@@ -11,7 +10,7 @@ const Input = styled.input`
 
 `
 
-function CamposNumericos({label, type}){
+function CamposNumericos({label}){
     return(
         <DivConteudo>
             <Label>{label}</Label>
