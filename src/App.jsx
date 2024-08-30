@@ -7,6 +7,7 @@ function App() {
   const [altura, setAltura] = useState();
   const [peso, setPeso] = useState();
   const [valorImc, setValorImc] = useState(0);
+  const [mensagem, setMensagem] = useState('');
 
   const handleClear = () => {
     setAltura(0)
@@ -25,9 +26,21 @@ function App() {
   }
 
   const calculoImc = (peso, altura) => {
-    let calculo = peso / (altura * altura) 
-    setValorImc(calculo);
+    let calculo = peso / (altura * altura);
+    setValorImc(calculo.toFixed(2))
     console.log(valorImc);
+  }
+
+  const resultadoImc = (resultado) => {
+    if(resultado < 16.9){
+      setMensagem('Muito abaixo do peso');
+    } else if (resultado >= 17 && resultado <= 18.4){
+      setMensagem("Abaixo do peso");
+    } else if (resultado > 18.5 && resultado <= 24.9){
+      setMensagem("Peso normal");
+    } else {
+      setMensagem("Acima do peso");
+    }
   }
 
   return (
@@ -41,6 +54,8 @@ function App() {
         handleChangeAltura={handleChangeAltura}
         handleChangePeso={handleChangePeso}
         calculoImc={calculoImc}
+        resultadoImc={resultadoImc}
+        mensagem={mensagem}
         />
     </main>
   )
