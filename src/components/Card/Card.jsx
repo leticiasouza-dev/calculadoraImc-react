@@ -34,7 +34,7 @@ const DivContainer = styled.div`
     }
 `
 
-function Card({altura, peso, handleClear, handleChangeAltura, handleChangePeso, calculoImc, resultadoImc, mensagem}){
+function Card({altura, peso, handleClear, handleChangeAltura, handleChangePeso, calculoImc, mensagem, mostrarMensagem,setMostrarMensagem, valorImc, resultadoImc}){
     return(
         <DivContainer>
             <h1>Calculadora de IMC</h1>
@@ -53,15 +53,15 @@ function Card({altura, peso, handleClear, handleChangeAltura, handleChangePeso, 
                 onChange={(event) => handleChangePeso(event.target.value)}
             />
 
-            {calculoImc && (
+            {mostrarMensagem && (
                 <>
-                    <p>Seu imc é {calculoImc}</p>
+                    <p>Seu imc é {valorImc}</p>
                     <p>{mensagem}</p>
                 </>
             )}
 
             <div className="containerBotoes">
-                <Botoes nome="Calcular" onClick={() => calculoImc(peso, altura)}  cor="#e04138"/>
+                <Botoes nome="Calcular" onClick={() => {calculoImc(peso, altura); setMostrarMensagem(true), resultadoImc(calculoImc)}}  cor="#e04138"/>
                 <Botoes nome="Limpar" onClick={handleClear} cor="#404042"/>
             </div>
             
