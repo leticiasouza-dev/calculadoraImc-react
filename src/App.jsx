@@ -4,23 +4,30 @@ import Card from './components/Card/Card.jsx'
 
 function App() {
 
-  const [altura, setAltura] = useState(0);
-  const [peso, setPeso] = useState(0);
+  const [altura, setAltura] = useState();
+  const [peso, setPeso] = useState();
+  const [valorImc, setValorImc] = useState(0);
 
   const handleClear = () => {
     setAltura(0)
-    setPeso(0);
+    setPeso(0)
     console.log('foi');
   }
 
   const handleChangeAltura = (event) =>{
-    setAltura(event.target.value);
-    console.log(event.target.value);
+    setAltura(event)
+    console.log(altura);
   }
 
   const handleChangePeso = (event) => {
     setPeso(event)
-    console.log(peso)
+    console.log(peso);
+  }
+
+  const calculoImc = (peso, altura) => {
+    let calculo = peso / (altura * altura) 
+    setValorImc(calculo);
+    console.log(valorImc);
   }
 
   return (
@@ -33,6 +40,7 @@ function App() {
         handleClear={handleClear}
         handleChangeAltura={handleChangeAltura}
         handleChangePeso={handleChangePeso}
+        calculoImc={calculoImc}
         />
     </main>
   )
