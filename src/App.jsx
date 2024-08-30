@@ -34,15 +34,19 @@ function App() {
   }
 
   const resultadoImc = (resultado) => {
-    if(resultado < 16.90){
+    if(resultado <= 16.90){
       setMensagem('Muito abaixo do peso');
-    } else if (resultado >= 17 && resultado <= 18.40){
+    } else if (resultado >= 17.00 && resultado <= 18.40){
       setMensagem("Abaixo do peso");
     } else if (resultado >= 18.50 && resultado <= 24.90){
       setMensagem("Peso normal");
+    } else if (resultado > 24.90 && resultado <= 29.90) {
+      setMensagem('Sobrepeso');
     } else {
       setMensagem("Acima do peso");
     }
+
+    console.log(mensagem)
   }
 
   return (

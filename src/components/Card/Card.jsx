@@ -16,7 +16,7 @@ const DivContainer = styled.div`
     }
 
     .containerBotoes{
-        margin-top: 50px;
+        margin-top: 40px;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -54,14 +54,14 @@ function Card({altura, peso, handleClear, handleChangeAltura, handleChangePeso, 
             />
 
             {mostrarMensagem && (
-                <>
+                <div style={{textAlign: "center", color: "white"}}>
                     <p>Seu imc é {valorImc}</p>
                     <p>{mensagem}</p>
-                </>
+                </div>
             )}
 
             <div className="containerBotoes">
-                <Botoes nome="Calcular" onClick={() => {calculoImc(peso, altura); setMostrarMensagem(true), resultadoImc(calculoImc)}}  cor="#e04138"/>
+                <Botoes nome="Calcular" onClick={() => {calculoImc(peso, altura); setMostrarMensagem(true); resultadoImc(valorImc)}}  cor="#e04138"/>
                 <Botoes nome="Limpar" onClick={handleClear} cor="#404042"/>
             </div>
             
